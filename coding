@@ -1,0 +1,39 @@
+import java.util.Scanner;
+public class UTS {
+    public static void main(String[] args) {
+        Scanner s = new Scanner(System.in);
+        String judul = "Penghitung Promo Toko Roti";
+        System.out.println(" "+judul);
+        System.out.print("Masukkan umur customer : ");
+        int umur = s.nextInt();
+        System.out.print("Masukkan berat badan customer : ");
+        int beratBadan = s.nextInt();
+        System.out.print("Masukkan total belanja customer : ");
+        int totalBelanja = s.nextInt();
+        int potongan = 0;
+        if (totalBelanja > 50000 && umur > 16) {
+            //kondisi true
+            int persentasePotongan = 0;
+            if (umur <= 25) {
+                persentasePotongan = beratBadan / 10;
+            }else if (umur <= 50) {
+                persentasePotongan = beratBadan / 5;
+            }else {
+                persentasePotongan = beratBadan / 2;
+            }
+            potongan = totalBelanja * persentasePotongan / 100;
+            System.out.println("Selamat anda mendapatkan potongan "+persentasePotongan+
+                               "% dari Rp "+totalBelanja+ " sebesar Rp "+potongan);
+        }else {
+            //kondisi false
+            System.out.println("Mohon maaf, anda belum mendapatkan promo");
+        }
+        int totalHarusBayar = totalBelanja - potongan;
+        System.out.println(" ");
+        System.out.println("Umur : "+umur+ " Tahun");
+        System.out.println("Berat Badan : "+beratBadan+ "Kg");
+        System.out.println("Total Belanja : Rp "+totalBelanja);
+        System.out.println("Potongan Promo : Rp "+potongan);
+        System.out.println("Total Harus Bayar : Rp "+totalHarusBayar);
+    }
+}
